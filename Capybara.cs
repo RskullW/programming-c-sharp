@@ -47,7 +47,7 @@ namespace ConsoleApplication1
         {
             Console.WriteLine("Bul-bul-bul");
         }
-        public void Scratching()
+        public void Scratch()
         {
             Console.WriteLine("Capybara scratches the back");
         }
@@ -72,18 +72,18 @@ namespace ConsoleApplication1
             GenerateAdvice();
             return _advice;
         }
+
         public override string ToString()
         {
-            string output = "";
-            
-            if (!string.IsNullOrEmpty(Name))
+            if (string.IsNullOrEmpty(Name))
             {
-                output = "Name: " + Name + '\n';
+                return base.ToString();
             }
 
-            output += "Gender: " + _gender + "\nAge: " + Age + "\nWeight: " + Weight;
-            return output;
+            return "\nName: " + Name;
+
         }
+
         public Capybara()
         {
             Display("Enter your name: ");
@@ -113,7 +113,6 @@ namespace ConsoleApplication1
             Age = Convert.ToInt32(Console.ReadLine());
             Display("Enter your weight: ");
             Weight = Convert.ToInt32(Console.ReadLine());
-            Display("Enter your Gender(Male,Female): ");
         }
         public Capybara(string name)
         {

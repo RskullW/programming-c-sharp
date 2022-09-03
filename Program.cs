@@ -1,15 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using ConsoleApplication1.Properties;
 
 namespace ConsoleApplication1
 {
     class Program
     {
+        private static List<Capybara> _capybaras;
+        private static ManagerCapybaras _managerCapybaras;
+
         public static void Main(string[] args)
         {
             try
             {
-                Capybara capybara = new Capybara();
-                capybara.Display();
+                _capybaras = new List<Capybara>(1);
+                _managerCapybaras = new ManagerCapybaras(_capybaras);
+                _managerCapybaras.OpenMenu();
             }
 
             catch (Exception exception)
@@ -21,8 +27,7 @@ namespace ConsoleApplication1
 }
 
 /*
-TODO: Рекомендуемые поля и методы указаны в варианте. Также необходимо написать программу с меню, позволяющую протестировать 
-разработанный класс. Обязательные пункты меню:
+TODO: need to create a menu.
 ‒ задание параметров конструируемого объекта;
 ‒ вывод свойств объекта;
 ‒ выполнение статического метода;
