@@ -9,8 +9,11 @@ namespace ConsoleApplication1
         private bool _harmful;
         private Gender _gender;
         public bool Harmful => _harmful;
-        private void SetGender(string gender)
+        protected override void SetGender()
         {
+            Display("Enter your Gender(Male,Female): ");
+            string gender = Console.ReadLine();
+            
             _gender = Gender.Indefinite;
             
             if (gender == Gender.Male.ToString())
@@ -62,20 +65,11 @@ namespace ConsoleApplication1
             base.Display();
             Display("Gender: " + _gender.ToString());
         }
-        public Capybara()
+        public Capybara(): base()
         {
-            Display("Enter your name: ");
-            Name = Console.ReadLine();
-            Display("Enter your age: ");
-            Age = Convert.ToInt32(Console.ReadLine());
-            Display("Enter your weight: ");
-            Weight = Convert.ToInt32(Console.ReadLine());
-            Display("Enter your Gender(Male,Female): ");
-           
-            string gender = Console.ReadLine();
-            SetGender(gender);
+            SetGender();
         }
-        public Capybara(Gender gender)
+        public Capybara(Gender gender): base()
         {
             _harmful = false;
 
@@ -84,33 +78,18 @@ namespace ConsoleApplication1
             {
                 _harmful = true;
             }
-
-            Display("Enter your name: ");
-            Name = Console.ReadLine();
-            Display("Enter your age: ");
-            Age = Convert.ToInt32(Console.ReadLine());
-            Display("Enter your weight: ");
-            Weight = Convert.ToInt32(Console.ReadLine());
         }
-        public Capybara(string name)
+        public Capybara(string name): base(name)
         {
-            Name = name;
             Display("Enter your age: ");
             Age = Convert.ToInt32(Console.ReadLine());
             Display("Enter your weight: ");
             Weight = Convert.ToInt32(Console.ReadLine());
-            Display("Enter your Gender(Male,Female): ");
-           
-            string gender = Console.ReadLine();
-            SetGender(gender);
+            SetGender();
         }
-        public Capybara(string name, int weight, int age, Gender gender)
+        public Capybara(string name, int weight, int age, Gender gender): base(name, weight, age)
         {
             _harmful = false;
-
-            Name = name;
-            Weight = weight;
-            Age = age;
             _gender = gender;
             
             if (_gender == Gender.Female)

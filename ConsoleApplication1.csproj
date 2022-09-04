@@ -40,6 +40,9 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Capybara.cs" />
+        <Compile Include="Color.cs" />
+        <Compile Include="ConditionHamster.cs" />
+        <Compile Include="Hamster.cs" />
         <Compile Include="ManagerCapybaras.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
