@@ -3,8 +3,12 @@ using ConsoleApplication1.Properties;
 
 namespace ConsoleApplication1
 {
-    public sealed class Hamster: Rodents
+    public sealed class Hamster: Rodent, IMammal
     {
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public int Weight { get; set; }
+        
         private Gender _gender;
         private ConditionMammal _condition;
         public event Action OnPlay;
@@ -70,23 +74,37 @@ namespace ConsoleApplication1
             OnPlay?.Invoke();
         }
 
-        public override void Display()
+        public void Display()
         {
-            base.Display();
+            DisplayStartCondition();
             Display("Gender: " + _gender.ToString());
             Display("Color: " + _condition.Color.ToString() + "\nSpeed: " + _condition.Speed);
             Display("Jump Height" + _condition.JumpHeight + "\nNumber of eaten chocolate chips:" +
                     _condition.EatenChocolateChips);
         }
         
-        public override void SetElements(string name, int age, int weight)
+        public void SetElements(string name, int age, int weight)
         {
-            base.SetElements(name, age, weight);
+            if (name != null)
+            {
+                Name = name;
+            }
+            
+            if (age < 1)
+            {
+                Age = age;
+            }
+
+            if (weight < 1)
+            {
+                Weight = weight;
+            }         
+
             SetGender();
             SetCondition();
         }
         
-        public override void StartAction(string message = null)
+        public void StartAction(string message = null)
         {
             int temp = (int)RandomNextFloat(1, 3);
             switch (temp)
@@ -99,5 +117,9 @@ namespace ConsoleApplication1
             }
         }
 
+        public void Display(string message)
+        {
+            Console.WriteLine(message);
+        }
     }
 }

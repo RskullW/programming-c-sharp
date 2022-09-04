@@ -2,38 +2,48 @@
 
 namespace ConsoleApplication1
 {
-    public class Mouse: Rodents
+    public class Mouse : Rodent, IMammal
     {
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public int Weight { get; set; }
+        
         protected ConditionMammal _conditionMouse;
         protected string _favoriteFood;
         protected const float _exponent = 0.001f;
-        
+
         public Mouse() : base()
         {
             InitializeMouse();
         }
+
         public Mouse(string name) : base(name)
         {
             InitializeMouse();
         }
+
         public Mouse(Color color) : base()
         {
             InitializeMouse();
         }
+
         public Mouse(string name, int weight, int age) : base(name, weight, age)
         {
             InitializeMouse();
         }
-        public Mouse(ConditionMammal conditionMammal): base()
+
+        public Mouse(ConditionMammal conditionMammal) : base()
         {
             _conditionMouse = conditionMammal;
             SetFavoriteFood();
         }
+
         protected virtual void InitializeMouse()
         {
-           SetFavoriteFood();
-           SetCondition();
+            SetFavoriteFood();
+            SetCondition();
         }
+
         public void SetFavoriteFood(string favoriteFood = null)
         {
             if (favoriteFood == null)
@@ -44,17 +54,20 @@ namespace ConsoleApplication1
 
             _favoriteFood = favoriteFood;
         }
-        public void SetCondition(Color color = Color.Unknown, float speed = 0.0f, float jumpHeight = 0.0f, ushort eatenChocolateChips = 0)
+
+        public void SetCondition(Color color = Color.Unknown, float speed = 0.0f, float jumpHeight = 0.0f,
+            ushort eatenChocolateChips = 0)
         {
             if (color == Color.Unknown)
             {
                 SetColor();
             }
-            
+
             SetSpeed(speed, 1f, 128f);
             SetJumpHeight(jumpHeight, 1f, 128f);
             _conditionMouse.EatenChocolateChips = eatenChocolateChips;
         }
+
         protected void SetColor(Color color = Color.Unknown)
         {
             ushort numberOfColor = FindCountElementsInColor();
@@ -78,6 +91,7 @@ namespace ConsoleApplication1
 
             _conditionMouse.Color = color;
         }
+
         protected void SetSpeed(float speed = 0.0f, float minValue = 0f, float maxValue = 1f)
         {
             if (speed - _exponent <= 0.0f)
@@ -87,6 +101,7 @@ namespace ConsoleApplication1
 
             _conditionMouse.Speed = speed;
         }
+
         protected void SetJumpHeight(float jumpHeight = 0.0f, float minValue = 0f, float maxValue = 1f)
         {
             if (jumpHeight - _exponent <= 0.0f)
@@ -96,33 +111,55 @@ namespace ConsoleApplication1
 
             _conditionMouse.JumpHeight = jumpHeight;
         }
+
         private ushort FindCountElementsInColor()
         {
             string[] tempEnumArrayString = Enum.GetNames(typeof(Color));
             return (ushort)tempEnumArrayString.Length;
         }
-        public override void StartAction(string message = null)
+
+        public void StartAction(string message = null)
         {
             if (message == null)
             {
                 message = "The mouse runs away from the walking cheese!!!";
             }
-            
+
             Display(message);
         }
-        public override void Display()
+
+        public void Display()
         {
-            base.Display();
+            DisplayStartCondition();
             Display("Favorite food: " + _favoriteFood.ToString());
             Display("Color: " + _conditionMouse.Color.ToString() + "\nSpeed: " + _conditionMouse.Speed);
             Display("Jump Height" + _conditionMouse.JumpHeight + "\nNumber of eaten chocolate chips:" +
                     _conditionMouse.EatenChocolateChips);
         }
-        public override void SetElements(string name, int age, int weight)
+
+        public void SetElements(string name = "", int age = -1, int weight = -1)
         {
-            base.SetElements(name, age, weight);
+            if (name != null)
+            {
+                Name = name;
+            }
+            
+            if (age < 1)
+            {
+                Age = age;
+            }
+
+            if (weight < 1)
+            {
+                Weight = weight;
+            }         
+
             SetFavoriteFood();
             SetCondition();
+        }
+        public void Display(string message)
+        {
+            Console.WriteLine(message);
         }
     }
 }

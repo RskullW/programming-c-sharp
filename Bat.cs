@@ -1,6 +1,8 @@
-﻿namespace ConsoleApplication1
+﻿using System;
+
+namespace ConsoleApplication1
 {
-    public class Bat: Mouse
+    public class Bat: Mouse, IMammal
     {
         private float _flySpeed;
         public float FlySpeed => _flySpeed;
@@ -26,7 +28,7 @@
 
             _flySpeed = flySpeed;
         }
-        public override void Display()
+        public void Display()
         {
             base.Display();
             Display("Fly speed: " + _flySpeed.ToString());
@@ -40,16 +42,19 @@
         {
             Display("WHOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
         }
-        public override void SetElements(string name, int age, int weight)
+        public void SetElements(string name, int age, int weight)
         {
             base.SetElements(name, age, weight);
             SetFavoriteFood();
             SetCondition();
         }
-        public override void StartAction(string message = null)
+        public void StartAction(string message = null)
         {
             Flying();
         }
-
+        public void Display(string message)
+        {
+            Console.WriteLine(message);
+        }
     }
 }

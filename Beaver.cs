@@ -3,8 +3,12 @@ using System.Diagnostics;
 
 namespace ConsoleApplication1
 {
-    public class Beaver : Rodents
+    public class Beaver : Rodent, IMammal
     {
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public int Weight { get; set; }
+        
         private static ushort _countBeaver = 0;
         private Color _favoriteColor;
         private int _numberHeirsToThrone;
@@ -33,6 +37,7 @@ namespace ConsoleApplication1
 
         public Beaver(Beaver beaver)
         {
+            
             Name = beaver.Name;
             Weight = beaver.Weight;
             Age = beaver.Age;
@@ -105,31 +110,50 @@ namespace ConsoleApplication1
             _numberHeirsToThrone = numberHeirsToThrone;
         }
         
-        public override void Display()
+        public void Display()
         {
-            base.Display();
+            DisplayStartCondition();
             Display("Color: " + _favoriteColor);
             Display("Number heirs to the Throne: " + NumberHeirsToThrone.ToString());
             Display("Type best friend: " + _bestFriendHamster.GetType());
         }
 
-        public override void SetElements(string name, int age, int weight)
+        public void SetElements(string name = null, int age = -1, int weight = -1)
         {
-            base.SetElements(name, age, weight);
+            if (name != null)
+            {
+                Name = name;
+            }
+            
+            if (age < 1)
+            {
+                Age = age;
+            }
+
+            if (weight < 1)
+            {
+                Weight = weight;
+            }         
+            
             SetFavoriteColor();
             SetNumberHeirsToThrone();
         }
         
-        public override void StartAction(string message = null)
+        public void StartAction(string message = null)
         {
             ToEat();
         }
 
-        public void SetFriendHamster(Rodents rodent)
+        public void SetFriendHamster(object rodent)
         {
             _bestFriendHamster = (Hamster) rodent;
             _bestFriendHamster.OnPlay += PlayWithFriend;
         }
 
+        public void Display(string message)
+        {
+            Console.WriteLine(message);
+        }
+        
     }
 }

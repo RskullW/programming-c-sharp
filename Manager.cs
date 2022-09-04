@@ -6,7 +6,7 @@ namespace ConsoleApplication1
 {
     public class Manager
     {
-        private List<Rodents> _rodents;
+        private List<IMammal> _mammals;
 
         public void Display(string message)
         {
@@ -14,22 +14,22 @@ namespace ConsoleApplication1
         }
         private void DisplayStartMenu(ref ushort numberOfItemsMenu)
         {
-            numberOfItemsMenu = 5;
-            Display("Select the rodent you want to add:");
-            Display("1.Bat\n2.Beaver\n3.Capybara\n4.Hamster\n5.Mouse");
+            numberOfItemsMenu = 6;
+            Display("Select the mammal you want to add:");
+            Display("1.Bat\n2.Beaver\n3.Capybara\n4.Hamster\n5.Mouse\n6.Cat");
 
-            if (_rodents.Count > 0)
+            if (_mammals.Count > 0)
             { 
                 Display("------------------------------------------------");
-                Display("Number of rodents: " + _rodents.Count.ToString());
-                Display("6. Exit in Main Menu");
-                numberOfItemsMenu = 6;
+                Display("Number of mammal: " + _mammals.Count.ToString());
+                Display("7. Exit in Main Menu");
+                numberOfItemsMenu = 7;
             }
         }
 
         private void DisplayMenu()
         {
-            Display("1.Set condition rodent\n2.Output conditions rodents\n3.Output methods rodents\n4.Output names classes rodents\n5.Exit");
+            Display("1.Set condition mammal\n2.Output conditions mammal\n3.Output methods mammal\n4.Output names classes mammal\n5.Exit");
         }
         public void StartPause()
         {
@@ -51,7 +51,7 @@ namespace ConsoleApplication1
                 switch (menuItem)
                 {
                     case 1:
-                        _rodents.Add(new Bat());
+                        _mammals.Add(new Bat());
                         break;
                     case 2:
                         Beaver beaver = new Beaver();
@@ -59,19 +59,19 @@ namespace ConsoleApplication1
                         
                         if (index != -1)
                         {
-                            beaver.SetFriendHamster(_rodents[index]);
+                            beaver.SetFriendHamster(_mammals[index]);
                         }
                         
-                        _rodents.Add(beaver);
+                        _mammals.Add(beaver);
                         break;
                     case 3:
-                        _rodents.Add(new Capybara());
+                        _mammals.Add(new Capybara());
                         break;
                     case 4:
-                        _rodents.Add(new Hamster());
+                        _mammals.Add(new Hamster());
                         break;
                     case 5:
-                        _rodents.Add(new Mouse());
+                        _mammals.Add(new Mouse());
                         break;
                     case 6:
                         if (numberOfItemsMenu == 6)
@@ -79,6 +79,9 @@ namespace ConsoleApplication1
                             StartPause();
                             return;
                         }
+                        break;
+                    case 7: 
+                        _mammals.Add(new Cat());
                         break;
                     default: break;
                 }
@@ -120,25 +123,24 @@ namespace ConsoleApplication1
             Display("Menu closed!");
         }
         // CREATION
-        public Manager(List<Rodents> rodents)
+        public Manager(List<IMammal> mammals)
         {
-            _rodents = rodents;
+            _mammals = mammals;
         }
         private void SetCondition()
         {
-            if (_rodents == null || _rodents.Count == 0)
+            if (_mammals == null || _mammals.Count == 0)
             {
-                throw new Exception("You didn't add rodents. Warning!");
+                throw new Exception("You didn't add mammal. Warning!");
             }
             
             Display("Index selection");
-            ushort indexRodent = CorrectInput(0, (ushort)(_rodents.Count - 1));
-            
-            _rodents[indexRodent].SetElements(GetNewName(), GetNewAge(), GetNewWeight());
+            ushort indexMammal = CorrectInput(0, (ushort)(_mammals.Count - 1));
+            _mammals[indexMammal].SetElements(GetNewName(), GetNewAge(), GetNewWeight());
         }
         private string GetNewName()
         {
-            Display("Enter new name rodent or write \"-1\":");
+            Display("Enter new name mammal or write \"-1\":");
             string newName = Console.ReadLine();
 
             if (newName == "-1")
@@ -150,7 +152,7 @@ namespace ConsoleApplication1
         }
         private int GetNewAge()
         {
-            Display("Enter new age rodent or write \"-1\":");
+            Display("Enter new age mammal or write \"-1\":");
             int newAge = Console.Read();
 
             if (newAge < 1)
@@ -162,7 +164,7 @@ namespace ConsoleApplication1
         }
         private int GetNewWeight()
         {
-            Display("Enter new weight rodent or write \"-1\":");
+            Display("Enter new weight mammal or write \"-1\":");
             int newWeight = Console.Read();
 
             if (newWeight < 1)
@@ -175,39 +177,39 @@ namespace ConsoleApplication1
         // CALL METHODS
         private void OutputMethods()
         {
-            if (_rodents == null || _rodents.Count == 0)
+            if (_mammals == null || _mammals.Count == 0)
             {
-                throw new Exception("You didn't add rodents. Warning!");
+                throw new Exception("You didn't add mammal. Warning!");
             }
             
             Display("Index selection");
-            ushort indexRodent = CorrectInput(0, (ushort)(_rodents.Count - 1));
-            _rodents[indexRodent].StartAction();
+            ushort indexMammal = CorrectInput(0, (ushort)(_mammals.Count - 1));
+            _mammals[indexMammal].StartAction();
         }
 
         private void OutputCondition()
         {
-            if (_rodents == null || _rodents.Count == 0)
+            if (_mammals == null || _mammals.Count == 0)
             {
-                throw new Exception("You didn't add rodents. Warning!");
+                throw new Exception("You didn't add mammal. Warning!");
             }
             
             Display("Index selection");
-            ushort indexRodent = CorrectInput(0, (ushort)(_rodents.Count - 1));
             
-            _rodents[indexRodent].Display();
+            ushort indexMammal = CorrectInput(0, (ushort)(_mammals.Count - 1));
+            _mammals[indexMammal].Display();
         }
 
         private void OutputNameClasses()
         {
-            if (_rodents == null || _rodents.Count == 0)
+            if (_mammals == null || _mammals.Count == 0)
             {
-                throw new Exception("You didn't add rodents. Warning!");
+                throw new Exception("You didn't add mammal. Warning!");
             }
 
-            foreach (var rodent in _rodents)
+            foreach (var mammal in _mammals)
             {
-                Display(rodent.DisplayNameClass());
+                Display(_mammals.GetType().ToString());
             }
         }
         // CORRECTNESS
@@ -230,13 +232,13 @@ namespace ConsoleApplication1
         }
         private bool CheckForExistence()
         {
-            if (_rodents == null || _rodents.Count == 0)
+            if (_mammals == null || _mammals.Count == 0)
             {
                 return false;
             }
-            foreach (var _rodents in _rodents)
+            foreach (var _mammals in _mammals)
             {
-                if (_rodents.Name == null)
+                if (_mammals.Name == null)
                 {
                     return false;
                 }
@@ -247,9 +249,9 @@ namespace ConsoleApplication1
 
         private short FindIndexFriendHamster()
         {
-            for (short i = 0; i < _rodents.Count; ++i)
+            for (short i = 0; i < _mammals.Count; ++i)
             {
-                var type = _rodents[i].GetType();
+                var type = _mammals[i].GetType();
                 if (type == typeof(Hamster))
                 {
                     return i;
