@@ -95,5 +95,13 @@ namespace ConsoleApplication1
 
             _numberHeirsToThrone = numberHeirsToThrone;
         }
+        
+        public override void Display()
+        {
+            base.Display();
+            Display("Color: " + _favoriteColor);
+            Display("Number heirs to the Throne: " + NumberHeirsToThrone.ToString());
+            Display("Type best friend: " + _bestFriendHamster.GetType());
+        }
     }
 }

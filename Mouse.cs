@@ -4,32 +4,32 @@ namespace ConsoleApplication1
 {
     public class Mouse: Rodents
     {
-        private ConditionMammal _conditionMouse;
-        private string _favoriteFood;
-        private const float _exponent = 0.001f;
+        protected ConditionMammal _conditionMouse;
+        protected string _favoriteFood;
+        protected const float _exponent = 0.001f;
         
         public Mouse() : base()
         {
-            InitializeBeaver();
+            InitializeMouse();
         }
         public Mouse(string name) : base(name)
         {
-            InitializeBeaver();
+            InitializeMouse();
         }
         public Mouse(Color color) : base()
         {
-            InitializeBeaver();
+            InitializeMouse();
         }
         public Mouse(string name, int weight, int age) : base(name, weight, age)
         {
-            InitializeBeaver();
+            InitializeMouse();
         }
         public Mouse(ConditionMammal conditionMammal): base()
         {
             _conditionMouse = conditionMammal;
             SetFavoriteFood();
         }
-        private void InitializeBeaver()
+        protected virtual void InitializeMouse()
         {
            SetFavoriteFood();
            SetCondition();
@@ -55,7 +55,7 @@ namespace ConsoleApplication1
             SetJumpHeight(jumpHeight, 1f, 128f);
             _conditionMouse.EatenChocolateChips = eatenChocolateChips;
         }
-        private void SetColor(Color color = Color.Unknown)
+        protected void SetColor(Color color = Color.Unknown)
         {
             ushort numberOfColor = FindCountElementsInColor();
 
@@ -78,7 +78,7 @@ namespace ConsoleApplication1
 
             _conditionMouse.Color = color;
         }
-        private void SetSpeed(float speed = 0.0f, float minValue = 0f, float maxValue = 1f)
+        protected void SetSpeed(float speed = 0.0f, float minValue = 0f, float maxValue = 1f)
         {
             if (speed - _exponent <= 0.0f)
             {
@@ -87,7 +87,7 @@ namespace ConsoleApplication1
 
             _conditionMouse.Speed = speed;
         }
-        private void SetJumpHeight(float jumpHeight = 0.0f, float minValue = 0f, float maxValue = 1f)
+        protected void SetJumpHeight(float jumpHeight = 0.0f, float minValue = 0f, float maxValue = 1f)
         {
             if (jumpHeight - _exponent <= 0.0f)
             {
@@ -101,7 +101,6 @@ namespace ConsoleApplication1
             string[] tempEnumArrayString = Enum.GetNames(typeof(Color));
             return (ushort)tempEnumArrayString.Length;
         }
-
         public virtual void StartAction(string message = null)
         {
             if (message == null)
@@ -110,6 +109,14 @@ namespace ConsoleApplication1
             }
             
             Display(message);
+        }
+        public override void Display()
+        {
+            base.Display();
+            Display("Favorite food: " + _favoriteFood.ToString());
+            Display("Color: " + _conditionMouse.Color.ToString() + "\nSpeed: " + _conditionMouse.Speed);
+            Display("Jump Height" + _conditionMouse.JumpHeight + "\nNumber of eaten chocolate chips:" +
+                    _conditionMouse.EatenChocolateChips);
         }
     }
 }
