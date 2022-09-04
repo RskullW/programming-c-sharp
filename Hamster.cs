@@ -7,6 +7,7 @@ namespace ConsoleApplication1
     {
         private Gender _gender;
         private ConditionHamster _condition;
+        public event Action OnPlay;
         public Hamster() : base()
         {
             Display("Enter your Gender(Male,Female): ");
@@ -54,6 +55,19 @@ namespace ConsoleApplication1
             _condition.Speed = speed;
             _condition.JumpHeight = speed / 4;
             _condition.EatenChocolateChips++;
+        }
+        public void PlayWithFriend()
+        {
+            OnPlay?.Invoke();
+        }
+
+        public override void Display()
+        {
+            base.Display();
+            Display("Gender: " + _gender.ToString());
+            Display("Color: " + _condition.Color.ToString() + "\nSpeed: " + _condition.Speed);
+            Display("Jump Height" + _condition.JumpHeight + "\nNumber of eaten chocolate chips:" +
+                    _condition.EatenChocolateChips);
         }
     }
 }

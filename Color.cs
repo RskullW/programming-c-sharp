@@ -12,6 +12,6 @@
         Pink,
         Orange,
         Grey,
-        Purple
+        Unknown,
     }
 }
