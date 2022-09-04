@@ -51,6 +51,13 @@ namespace ConsoleApplication1
             Weight = weight;
             Age = age;
         }
+        
+        protected float RandomNextFloat(float minValue = 0f, float maxValue = 1f)
+        {
+            var random = new Random();
+            return (float)(random.NextDouble() * ( maxValue- minValue)) + minValue;
+        }
+
         protected virtual void SetGender()
         {
             Display("Gender is not defined");

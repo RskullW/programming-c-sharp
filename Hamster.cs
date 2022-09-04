@@ -6,7 +6,7 @@ namespace ConsoleApplication1
     public sealed class Hamster: Rodents
     {
         private Gender _gender;
-        private ConditionHamster _condition;
+        private ConditionMammal _condition;
         public event Action OnPlay;
         public Hamster() : base()
         {
@@ -36,8 +36,8 @@ namespace ConsoleApplication1
         }
         public void SetCondition()
         {
-            var random = new Random();
-            Color color = (Color)random.Next(0, FindCountElementsInColor());
+            int value = (int)RandomNextFloat(0, FindCountElementsInColor());
+            Color color = (Color)(value);
             
             Display("Specify the speed of the hamster (Unit of measurement: speed of light):");
             var speed = float.Parse(Console.ReadLine());
@@ -51,7 +51,7 @@ namespace ConsoleApplication1
         }
         private void SetCondition(Color color = Color.Black, float speed = 0f, float JumpHeight = 0f)
         {
-            _condition = new ConditionHamster(color);
+            _condition = new ConditionMammal(color);
             _condition.Speed = speed;
             _condition.JumpHeight = speed / 4;
             _condition.EatenChocolateChips++;

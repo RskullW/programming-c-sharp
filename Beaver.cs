@@ -87,11 +87,10 @@ namespace ConsoleApplication1
 
         public void SetNumberHeirsToThrone(int numberHeirsToThrone = -1)
         {
-            var random = new Random();
 
             if (numberHeirsToThrone < 0)
             {
-                numberHeirsToThrone = random.Next(0, 128);
+                numberHeirsToThrone = (int)RandomNextFloat(0, 128);
             }
 
             _numberHeirsToThrone = numberHeirsToThrone;
