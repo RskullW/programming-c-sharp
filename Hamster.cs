@@ -13,6 +13,7 @@ namespace ConsoleApplication1
             Display("Enter your Gender(Male,Female): ");
             string gender = Console.ReadLine();
             SetGender();
+            SetCondition();
         }
         public Hamster(string name) : base(name)
         {
@@ -21,11 +22,19 @@ namespace ConsoleApplication1
             Display("Enter your weight: ");
             Weight = Convert.ToInt32(Console.ReadLine());
             SetGender();
+            SetCondition();
         }
         public Hamster(string name, int weight, int age) : base(name, weight, age)
         {
             SetGender();
+            SetCondition();
         }
+        public Hamster(ConditionMammal condition):base()
+        {
+            _condition = condition;
+            Display("Enter your Gender(Male,Female): ");
+            string gender = Console.ReadLine();
+            SetGender();        }
         public void RideInTheWheel()
         {
             Display("Who-o-o-o-osh!!");
@@ -69,5 +78,26 @@ namespace ConsoleApplication1
             Display("Jump Height" + _condition.JumpHeight + "\nNumber of eaten chocolate chips:" +
                     _condition.EatenChocolateChips);
         }
+        
+        public override void SetElements(string name, int age, int weight)
+        {
+            base.SetElements(name, age, weight);
+            SetGender();
+            SetCondition();
+        }
+        
+        public override void StartAction(string message = null)
+        {
+            int temp = (int)RandomNextFloat(1, 3);
+            switch (temp)
+            {
+                case 1: RideInTheWheel();
+                    break;
+                case 2: PlayWithFriend();
+                    break;
+                default: break;
+            }
+        }
+
     }
 }

@@ -36,5 +36,20 @@
             SetFlySpeed();
         }
 
+        public void Flying()
+        {
+            Display("WHOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+        }
+        public override void SetElements(string name, int age, int weight)
+        {
+            base.SetElements(name, age, weight);
+            SetFavoriteFood();
+            SetCondition();
+        }
+        public override void StartAction(string message = null)
+        {
+            Flying();
+        }
+
     }
 }

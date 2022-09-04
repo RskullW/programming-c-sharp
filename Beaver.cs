@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace ConsoleApplication1
 {
@@ -30,6 +31,15 @@ namespace ConsoleApplication1
             InitializeBeaver();
         }
 
+        public Beaver(Beaver beaver)
+        {
+            Name = beaver.Name;
+            Weight = beaver.Weight;
+            Age = beaver.Age;
+            _favoriteColor = beaver._favoriteColor;
+            _numberHeirsToThrone = beaver._numberHeirsToThrone;
+            _bestFriendHamster = beaver._bestFriendHamster;
+        }
         private void PlayWithFriend()
         {
             string friendMammal = "Beaver not play";
@@ -74,7 +84,6 @@ namespace ConsoleApplication1
 
         private void InitializeBeaver()
         {
-            _bestFriendHamster.OnPlay += PlayWithFriend;
             _countBeaver++;
             SetFavoriteColor();
             SetNumberHeirsToThrone();
@@ -82,7 +91,7 @@ namespace ConsoleApplication1
 
         public static void ToEat()
         {
-            Console.WriteLine("Nyam-nyam))); " + _countBeaver.ToString() + "beavers ate");
+            Console.WriteLine("Nyam-nyam))) " + _countBeaver.ToString() + " beavers ate");
         }
 
         public void SetNumberHeirsToThrone(int numberHeirsToThrone = -1)
@@ -103,5 +112,24 @@ namespace ConsoleApplication1
             Display("Number heirs to the Throne: " + NumberHeirsToThrone.ToString());
             Display("Type best friend: " + _bestFriendHamster.GetType());
         }
+
+        public override void SetElements(string name, int age, int weight)
+        {
+            base.SetElements(name, age, weight);
+            SetFavoriteColor();
+            SetNumberHeirsToThrone();
+        }
+        
+        public override void StartAction(string message = null)
+        {
+            ToEat();
+        }
+
+        public void SetFriendHamster(Rodents rodent)
+        {
+            _bestFriendHamster = (Hamster) rodent;
+            _bestFriendHamster.OnPlay += PlayWithFriend;
+        }
+
     }
 }

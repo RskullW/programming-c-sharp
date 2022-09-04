@@ -5,16 +5,18 @@ namespace ConsoleApplication1
 {
     class Program
     {
-        private static List<Capybara> _capybaras;
-        private static ManagerCapybaras _managerCapybaras;
+        private static List<Rodents> _rodents;
+        private static Manager _manager;
 
         public static void Main(string[] args)
         {
             try
             {
-                _capybaras = new List<Capybara>(1);
-                _managerCapybaras = new ManagerCapybaras(_capybaras);
-                _managerCapybaras.OpenMenu();
+                _rodents = new List<Rodents>();
+                _manager = new Manager(_rodents);
+                _manager.OpenStartMenu();
+                _manager.OpenMenu();
+                _manager.CloseMenu();
             }
 
             catch (Exception exception)
@@ -40,12 +42,4 @@ TODO: Разработать иерархию классов, включающу
 ‒ вывод свойств объекта;
 ‒ выполнение методов объекта;
 ‒ вывод имени класса объекта.
-TODO: Грызуны.
-Класс для первой части – капибара.
-Варианты свойств: вес, пол, возраст, имя.
-Варианты методов: капибариться, плавать, чесать, получить совет 
-от капибары (статический).
-Возможные классы иерархии: грызуны (базовый), хомяк, бобр, 
-мышь.
-Возможный интерфейс: IMammal, дополнительный класс – кошка.
 */

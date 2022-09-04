@@ -124,5 +124,27 @@ namespace ConsoleApplication1
 
             return new Capybara(name, weight, age, gender);
         }
+        
+        public override void SetElements(string name, int age, int weight)
+        {
+            base.SetElements(name, age, weight);
+            SetGender();
+        }
+        
+        public override void StartAction(string message = null)
+        {
+            int temp = (int)RandomNextFloat(1, 3);
+            switch (temp)
+            {
+                case 1: Kapibaritsya();
+                    break;
+                case 2: Swim();
+                    break;
+                case 3: Scratch();
+                    break;
+                default: break;
+            }
+        }
+
     }
 }

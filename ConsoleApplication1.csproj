@@ -45,7 +45,7 @@
         <Compile Include="Color.cs" />
         <Compile Include="ConditionMammal.cs" />
         <Compile Include="Hamster.cs" />
-        <Compile Include="ManagerCapybaras.cs" />
+        <Compile Include="Manager.cs" />
         <Compile Include="Mouse.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

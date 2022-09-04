@@ -101,7 +101,7 @@ namespace ConsoleApplication1
             string[] tempEnumArrayString = Enum.GetNames(typeof(Color));
             return (ushort)tempEnumArrayString.Length;
         }
-        public virtual void StartAction(string message = null)
+        public override void StartAction(string message = null)
         {
             if (message == null)
             {
@@ -117,6 +117,12 @@ namespace ConsoleApplication1
             Display("Color: " + _conditionMouse.Color.ToString() + "\nSpeed: " + _conditionMouse.Speed);
             Display("Jump Height" + _conditionMouse.JumpHeight + "\nNumber of eaten chocolate chips:" +
                     _conditionMouse.EatenChocolateChips);
+        }
+        public override void SetElements(string name, int age, int weight)
+        {
+            base.SetElements(name, age, weight);
+            SetFavoriteFood();
+            SetCondition();
         }
     }
 }
