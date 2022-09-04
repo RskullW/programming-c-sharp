@@ -39,11 +39,19 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Bat.cs" />
+        <Compile Include="Beaver.cs" />
         <Compile Include="Capybara.cs" />
-        <Compile Include="ManagerCapybaras.cs" />
+        <Compile Include="Cat.cs" />
+        <Compile Include="Color.cs" />
+        <Compile Include="ConditionMammal.cs" />
+        <Compile Include="Hamster.cs" />
+        <Compile Include="IMammal.cs" />
+        <Compile Include="Manager.cs" />
+        <Compile Include="Mouse.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="IRodents.cs" />
+        <Compile Include="Rodent.cs" />
         <Compile Include="Properties\Gender.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
