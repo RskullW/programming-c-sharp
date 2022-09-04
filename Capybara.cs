@@ -3,16 +3,12 @@ using ConsoleApplication1.Properties;
 
 namespace ConsoleApplication1
 {
-    public class Capybara : IRodents
+    public sealed class Capybara : Rodents
     {
         private static string _advice;
         private bool _harmful;
         private Gender _gender;
         public bool Harmful => _harmful;
-        public event Action OnCapybaritsya;
-        public int Age { get; set; }
-        public string Name { get; set; }
-        public int Weight { get; set; }
         private void SetGender(string gender)
         {
             _gender = Gender.Indefinite;
@@ -56,34 +52,16 @@ namespace ConsoleApplication1
             var random = new Random();
             _advice = "Save up $" + random.Next(1, Int32.MaxValue) + " to go to Israel";
         }
-        private void Display(string value)
-        {
-            Console.WriteLine(value);
-        }
-        public void Display()
-        {
-            Display("Name: " + Name);
-            Display("Age: " + Age.ToString());
-            Display("Weight: " + Weight.ToString());
-            Display("Gender: " + _gender.ToString());
-        }
         public static string GetAdvice()
         {
             GenerateAdvice();
             return _advice;
         }
-
-        public override string ToString()
+        public override void Display()
         {
-            if (string.IsNullOrEmpty(Name))
-            {
-                return base.ToString();
-            }
-
-            return "\nName: " + Name;
-
+            base.Display();
+            Display("Gender: " + _gender.ToString());
         }
-
         public Capybara()
         {
             Display("Enter your name: ");
