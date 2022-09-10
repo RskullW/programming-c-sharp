@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using ConsoleApplication1.Properties;
 
 namespace ConsoleApplication1
 {
     class Program
     {
-        private static List<Capybara> _capybaras;
-        private static ManagerCapybaras _managerCapybaras;
+        private static List<Rodents> _rodents;
+        private static Manager _manager;
 
         public static void Main(string[] args)
         {
             try
             {
-                _capybaras = new List<Capybara>(1);
-                _managerCapybaras = new ManagerCapybaras(_capybaras);
-                _managerCapybaras.OpenMenu();
+                _rodents = new List<Rodents>();
+                _manager = new Manager(_rodents);
+                _manager.OpenStartMenu();
+                _manager.OpenMenu();
+                _manager.CloseMenu();
             }
 
             catch (Exception exception)
@@ -27,9 +28,18 @@ namespace ConsoleApplication1
 }
 
 /*
-TODO: need to create a menu.
-‒ задание параметров конструируемого объекта;
+TODO: Разработать иерархию классов, включающую созданный в задании 
+1. В иерархию должно входить минимум пять классов. 
+Вновь добавленный корневой класс иерархии (базовый) должен быть 
+абстрактным и содержать общие для остальных поля и методы, а хотя 
+бы один класс из потомков – sealed. У каждого из классов должно 
+быть хотя бы одно собственное свойство и метод. Также должны быть 
+продемонстрированы виртуальные и переопределённые методы. Переопределенные должны вызывать методы базового класса если это 
+оправдано. В каждом классе должен быть метод, выводящий имя данного класса. В объектах дочерних классов он должен вызывать аналогичный метод родительского класса.
+Необходимо написать программу с меню, позволяющую протестировать разработанную иерархию. Обязательные пункты меню:
+‒ задание свойств каждого объекта; (хотя бы по одному объекту 
+на не абстрактный класс);
 ‒ вывод свойств объекта;
-‒ выполнение статического метода;
-‒ выполнение методов объекта.
+‒ выполнение методов объекта;
+‒ вывод имени класса объекта.
 */

@@ -3,18 +3,17 @@ using ConsoleApplication1.Properties;
 
 namespace ConsoleApplication1
 {
-    public class Capybara : IRodents
+    public sealed class Capybara : Rodents
     {
         private static string _advice;
         private bool _harmful;
         private Gender _gender;
         public bool Harmful => _harmful;
-        public event Action OnCapybaritsya;
-        public int Age { get; set; }
-        public string Name { get; set; }
-        public int Weight { get; set; }
-        private void SetGender(string gender)
+        protected override void SetGender()
         {
+            Display("Enter your Gender(Male,Female): ");
+            string gender = Console.ReadLine();
+            
             _gender = Gender.Indefinite;
             
             if (gender == Gender.Male.ToString())
@@ -56,48 +55,21 @@ namespace ConsoleApplication1
             var random = new Random();
             _advice = "Save up $" + random.Next(1, Int32.MaxValue) + " to go to Israel";
         }
-        private void Display(string value)
-        {
-            Console.WriteLine(value);
-        }
-        public void Display()
-        {
-            Display("Name: " + Name);
-            Display("Age: " + Age.ToString());
-            Display("Weight: " + Weight.ToString());
-            Display("Gender: " + _gender.ToString());
-        }
         public static string GetAdvice()
         {
             GenerateAdvice();
             return _advice;
         }
-
-        public override string ToString()
+        public override void Display()
         {
-            if (string.IsNullOrEmpty(Name))
-            {
-                return base.ToString();
-            }
-
-            return "\nName: " + Name;
-
+            base.Display();
+            Display("Gender: " + _gender.ToString());
         }
-
-        public Capybara()
+        public Capybara(): base()
         {
-            Display("Enter your name: ");
-            Name = Console.ReadLine();
-            Display("Enter your age: ");
-            Age = Convert.ToInt32(Console.ReadLine());
-            Display("Enter your weight: ");
-            Weight = Convert.ToInt32(Console.ReadLine());
-            Display("Enter your Gender(Male,Female): ");
-           
-            string gender = Console.ReadLine();
-            SetGender(gender);
+            SetGender();
         }
-        public Capybara(Gender gender)
+        public Capybara(Gender gender): base()
         {
             _harmful = false;
 
@@ -106,33 +78,18 @@ namespace ConsoleApplication1
             {
                 _harmful = true;
             }
-
-            Display("Enter your name: ");
-            Name = Console.ReadLine();
-            Display("Enter your age: ");
-            Age = Convert.ToInt32(Console.ReadLine());
-            Display("Enter your weight: ");
-            Weight = Convert.ToInt32(Console.ReadLine());
         }
-        public Capybara(string name)
+        public Capybara(string name): base(name)
         {
-            Name = name;
             Display("Enter your age: ");
             Age = Convert.ToInt32(Console.ReadLine());
             Display("Enter your weight: ");
             Weight = Convert.ToInt32(Console.ReadLine());
-            Display("Enter your Gender(Male,Female): ");
-           
-            string gender = Console.ReadLine();
-            SetGender(gender);
+            SetGender();
         }
-        public Capybara(string name, int weight, int age, Gender gender)
+        public Capybara(string name, int weight, int age, Gender gender): base(name, weight, age)
         {
             _harmful = false;
-
-            Name = name;
-            Weight = weight;
-            Age = age;
             _gender = gender;
             
             if (_gender == Gender.Female)
@@ -167,5 +124,27 @@ namespace ConsoleApplication1
 
             return new Capybara(name, weight, age, gender);
         }
+        
+        public override void SetElements(string name, int age, int weight)
+        {
+            base.SetElements(name, age, weight);
+            SetGender();
+        }
+        
+        public override void StartAction(string message = null)
+        {
+            int temp = (int)RandomNextFloat(1, 3);
+            switch (temp)
+            {
+                case 1: Kapibaritsya();
+                    break;
+                case 2: Swim();
+                    break;
+                case 3: Scratch();
+                    break;
+                default: break;
+            }
+        }
+
     }
 }
