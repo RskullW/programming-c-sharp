@@ -6,6 +6,9 @@ namespace ConsoleApplication1
 {
     public class Manager
     {
+        private Queue<Animal> _animals;
+        private ManagerFiles _managerFiles;
+        
         public void Display(string message)
         {
             Console.WriteLine(message);
@@ -13,9 +16,18 @@ namespace ConsoleApplication1
         private void DisplayStartMenu(ref ushort numberOfItemsMenu)
         {
         }
-
         private void DisplayMenu()
         {
+            Display("Number of animals: " + _animals.Count.ToString());
+            Display("______________________");
+            Display("1. Add a new animal");
+            Display("2. Delete animal");
+            Display("3. Change animal");
+            Display("4. Find animal");
+            Display("5. Output the number of animals of a natural area");
+            Display("6. Find out how much money is spent on one animal (per month)");
+            Display("7. Save file");
+            Display("8. Exit program");
         }
         public void StartPause()
         {
@@ -24,10 +36,6 @@ namespace ConsoleApplication1
             Console.Clear();
         }
         // MENU
-        public void OpenStartMenu()
-        {
-        }
-        
         public void OpenMenu()
         {
             
@@ -39,7 +47,11 @@ namespace ConsoleApplication1
         // CREATION
         public Manager()
         {
+            _managerFiles = new ManagerFiles();
+            _managerFiles.ReadFile();
+            _animals = _managerFiles.GetAnimals();
             
+            _managerFiles.StartAutoSave();
         }
         // CORRECTNESS
         public ushort CorrectInput(ushort minValue = 0, ushort maxValue = 1)
@@ -58,10 +70,6 @@ namespace ConsoleApplication1
             }
 
             return number;
-        }
-        private bool CheckForExistence()
-        {
-            return true;
         }
     }
     

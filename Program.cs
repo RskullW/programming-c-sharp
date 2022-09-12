@@ -10,7 +10,7 @@ namespace ConsoleApplication1
         {
             try
             {
-                
+                ManagerFiles managerFiles = new ManagerFiles();
             }
 
             catch (Exception exception)
