@@ -105,7 +105,7 @@ namespace ConsoleApplication1
             foreach (var animal in _animals)
             {
                 _binaryWriter.Write(animal.Name);
-                _binaryWriter.Write(animal.NaturalZone);
+                _binaryWriter.Write(animal.NaturalArea);
                 _binaryWriter.Write(animal.Expenses);
             }
             

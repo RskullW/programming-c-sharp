@@ -87,7 +87,6 @@ namespace ConsoleApplication1
             _managerFiles.CloseManager();
             Display("Menu closed!");
         }
-
         private void OpenSecondMenu()
         {
             ushort numberOfItemsMenu = 3;
@@ -113,7 +112,6 @@ namespace ConsoleApplication1
                 default: break;
             }
         }
-
         // MENU ITEMS
         private void AddAnimal()
         {
@@ -167,7 +165,7 @@ namespace ConsoleApplication1
                 if (i == index)
                 {
                     animalsArray[index].Name = CreateName();
-                    animalsArray[index].NaturalZone = CreateNaturalArea();
+                    animalsArray[index].NaturalArea = CreateNaturalArea();
                     animalsArray[index].Expenses = CreateExpenses();
 
                     break;
@@ -246,7 +244,11 @@ namespace ConsoleApplication1
         private string CreateNaturalArea()
         {
             Display("Enter natural area");
-            return Console.ReadLine();
+            
+            string naturalArea = Console.ReadLine();
+            naturalArea = naturalArea.ToLower();
+            
+            return naturalArea;
         }
         private float CreateExpenses()
         {

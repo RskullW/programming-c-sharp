@@ -8,13 +8,13 @@ namespace ConsoleApplication1
         public static int INDEX = 1;
         public int index;
         public string Name;
-        public string NaturalZone;
+        public string NaturalArea;
         public float Expenses;
 
-        public Animal(string name, string naturalZone, float expenses)
+        public Animal(string name, string naturalArea, float expenses)
         {
             Name = name;
-            NaturalZone = naturalZone;
+            NaturalArea = naturalArea;
             
             if (expenses < 0.0001)
             {
@@ -42,14 +42,14 @@ namespace ConsoleApplication1
                     name+=  Name[i];
                 }
 
-                if (i+1 > NaturalZone.Length)
+                if (i+1 > NaturalArea.Length)
                 {
                     naturalArea+= " ";
                 }
 
                 else
                 {
-                    naturalArea += NaturalZone[i];
+                    naturalArea += NaturalArea[i];
                 }
             }
             
