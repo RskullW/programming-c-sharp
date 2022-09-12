@@ -5,7 +5,7 @@ namespace ConsoleApplication1
 {
     public struct Animal
     {
-        public static int INDEX = 0;
+        public static int INDEX = 1;
         public int index;
         public string Name;
         public string NaturalZone;
@@ -27,34 +27,34 @@ namespace ConsoleApplication1
         }
         public void DisplayAnimal()
         {
-            char[] name = new char[10];
-            char[] naturalArea = new char[10];
+            string name = "";
+            string naturalArea = "";
 
             for (ushort i = 0; i < 10; ++i)
             {
-                if (Name.Length < 10)
+                if (i+1 > Name.Length)
                 {
-                    name[i] = ' ';
+                    name += " ";
                 }
 
                 else
                 {
-                    name[i] = Name[i];
+                    name+=  Name[i];
                 }
 
-                if (NaturalZone.Length < 10)
+                if (i+1 > NaturalZone.Length)
                 {
-                    naturalArea[i] = ' ';
+                    naturalArea+= " ";
                 }
 
                 else
                 {
-                    naturalArea[i] = NaturalZone[i];
+                    naturalArea += NaturalZone[i];
                 }
             }
             
-            Console.Write("|------|-------------|------------|------------\n|");
-            Console.Write("|" + String.Format(" {0:000} |", INDEX) + String.Format(" {0:0000000000}  |", name) + String.Format(" {0:0000000000} |", naturalArea) + String.Format(" {0:0 000 000} |", Expenses));
+            Console.Write("|-------|------------|------------|------------|\n");
+            Console.Write("|" + String.Format(" {0:00000} |", index) + name.ToString() + "  |"+ naturalArea.ToString() + "  |" + String.Format(" {0:0 000 000}  |", Expenses) + "\n");
         }
         public void SetIndex(int index)
         {

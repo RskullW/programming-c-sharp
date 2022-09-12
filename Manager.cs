@@ -87,36 +87,33 @@ namespace ConsoleApplication1
             _managerFiles.CloseManager();
             Display("Menu closed!");
         }
+
         private void OpenSecondMenu()
         {
             ushort numberOfItemsMenu = 3;
             ushort menuItem = 0;
             Animal[] animalsArray = _animals.ToArray();
-            
+
             if (_animals.Count < 1)
             {
                 Display("Sorry, not available animals");
                 return;
             }
-            
-            while (menuItem != numberOfItemsMenu)
-            {
-                DisplaySecondMenu();
-                menuItem = CorrectInput(1, numberOfItemsMenu);
-                switch (menuItem)
-                {
-                    case 1:
-                        FindIndexAnimals(animalsArray);
-                        break;
-                    case 2:
-                        FindNameAnimal(animalsArray);
-                        break;
-                    default: break;
-                }
 
-                StartPause();
+            DisplaySecondMenu();
+            menuItem = CorrectInput(1, numberOfItemsMenu);
+            switch (menuItem)
+            {
+                case 1:
+                    FindIndexAnimals(animalsArray);
+                    break;
+                case 2:
+                    FindNameAnimal(animalsArray);
+                    break;
+                default: break;
             }
         }
+
         // MENU ITEMS
         private void AddAnimal()
         {
@@ -277,7 +274,7 @@ namespace ConsoleApplication1
         // Auxiliary methods
         private void DisplayNameTable()
         {
-            Console.WriteLine("|-INDEX-|----NAME----|NATURAL-AREA|--EXPENSES--\n|");
+            Console.WriteLine("|-INDEX-|----NAME----|NATURAL-AREA|--EXPENSES--|\n");
         }
         private void FindIndexAnimals(Animal[] animalsArray)
         {
