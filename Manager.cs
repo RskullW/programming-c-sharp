@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using ConsoleApplication1.Properties;
 
 namespace ConsoleApplication1
 {
@@ -23,11 +22,12 @@ namespace ConsoleApplication1
             Display("1. Add a new animal");
             Display("2. Delete animal");
             Display("3. Change animal");
-            Display("4. Find animal");
-            Display("5. Output the number of animals of a natural area");
-            Display("6. Find out how much money is spent on one animal (per month)");
-            Display("7. Save file");
-            Display("8. Exit program");
+            Display("4. Output all animals");
+            Display("5. Find animal");
+            Display("6. Output the number of animals of a natural area");
+            Display("7. Find out how much money is spent on one animal (per month)");
+            Display("8. Save file");
+            Display("9. Exit program");
         }
         public void StartPause()
         {
@@ -38,17 +38,106 @@ namespace ConsoleApplication1
         // MENU
         public void OpenMenu()
         {
-            
+            ushort numberOfItemsMenu = 9;
+            ushort menuItem = 0;
+
+            while (menuItem != numberOfItemsMenu)
+            {
+                DisplayMenu();
+                menuItem = CorrectInput(1, numberOfItemsMenu);
+                switch (menuItem)
+                {
+                    case 1:
+                        AddAnimal();
+                        break;
+                    case 2:
+                        DeleteAnimal();
+                        break;
+                    case 3:
+                        ChangeAnimal();
+                        break;
+                    case 4:
+                        OutputAllAnimals();
+                        break;
+                    case 5:
+                        FindAnimal();
+                        break;
+                    case 6:
+                        OutputAnimalsOfNaturalArea();
+                        break;
+                    case 7:
+                        FindMoneyForMonthAnimal();
+                        break;
+                    case 8:
+                        SaveFile();
+                        break;
+                    default: return;
+                }
+
+                StartPause();
+            }
         }
         public void CloseMenu()
         {
             Display("Menu closed!");
+        }
+        // MENU ITEMS
+        private void AddAnimal()
+        {
+            
+        }
+        
+        private void DeleteAnimal()
+        {
+            
+        }
+        
+        private void ChangeAnimal()
+        {
+            
+        }
+        
+        private void OutputAllAnimals()
+        {
+            
+        }
+        
+        private void FindAnimal()
+        {
+            
+        }
+        
+        private void OutputAnimalsOfNaturalArea()
+        {
+            
+        }
+        
+        private void FindMoneyForMonthAnimal()
+        {
+            
+        }
+
+        private void SaveFile()
+        {
+            LoadAnimalsInManager();
+        }
+
+        private void SaveFileFromMenu()
+        {
+            _managerFiles.SetAnimals(_animals);
+            _managerFiles.SaveFile();
+        }
+
+        private void LoadAnimalsInManager()
+        {
+            _managerFiles.SetAnimals(_animals);
         }
         // CREATION
         public Manager()
         {
             _managerFiles = new ManagerFiles();
             _managerFiles.ReadFile();
+            _managerFiles.OnAutoSave += LoadAnimalsInManager;
             _animals = _managerFiles.GetAnimals();
             
             _managerFiles.StartAutoSave();
@@ -72,12 +161,4 @@ namespace ConsoleApplication1
             return number;
         }
     }
-    
-    /*
-     * ‒ задание свойств каждого объекта; (хотя бы по одному объекту 
-на не абстрактный класс);
-‒ вывод свойств объекта;
-‒ выполнение методов объекта;
-‒ вывод имени класса объекта
-     */
 }

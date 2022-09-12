@@ -9,6 +9,7 @@ namespace ConsoleApplication1
 {
     public class ManagerFiles
     {
+        public event Action OnAutoSave;
         private Task _pointTask;
         private CancellationTokenSource _tokenSource;
         private CancellationToken _cancellationToken;
@@ -44,7 +45,7 @@ namespace ConsoleApplication1
         {
             _animals = animals;
         }
-        public void SaveFile(bool isCloseProgram = false)
+        public void SaveFile()
         {
             WriteData();
         }
@@ -91,6 +92,8 @@ namespace ConsoleApplication1
                 {
                     return;
                 }
+                
+                OnAutoSave?.Invoke();
                 
                 WriteData();
                 Display("The file is automatically saved...");

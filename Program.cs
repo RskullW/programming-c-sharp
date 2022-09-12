@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using ConsoleApplication1.Properties;
 
 namespace ConsoleApplication1
 {
