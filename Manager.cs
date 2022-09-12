@@ -151,6 +151,8 @@ namespace ConsoleApplication1
 
             Animal.INDEX--;
             _animals = newAnimal;
+            
+            Display("Animal was deleted!");
         }
         private void ChangeAnimal()
         {

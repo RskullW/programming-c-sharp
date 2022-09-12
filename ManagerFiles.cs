@@ -42,7 +42,7 @@ namespace ConsoleApplication1
         }
         public void SaveFile()
         {
-            Display("File was saved...4");
+            Display("File was saved...");
             WriteData();
         }
         public void CloseManager()
