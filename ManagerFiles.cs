@@ -24,7 +24,7 @@ namespace ConsoleApplication1
 
         public ManagerFiles()
         {
-            _autoSaveTime = 30;
+            _autoSaveTime = 60000; // 60000 = 1 minute
             
             _animals = new Queue<Animal>();
             Display("Enter the path to the file:");
@@ -34,11 +34,6 @@ namespace ConsoleApplication1
         }
         public Queue<Animal> GetAnimals()
         {
-            if (_animals.Count == 0)
-            {
-                throw new Exception("It is impossible to get a list of animals");
-            }
-            
             return _animals;
         }
         public void SetAnimals(Queue<Animal> animals)
@@ -47,6 +42,7 @@ namespace ConsoleApplication1
         }
         public void SaveFile()
         {
+            Display("File was saved...");
             WriteData();
         }
         public void CloseManager()

@@ -9,7 +9,9 @@ namespace ConsoleApplication1
         {
             try
             {
-                ManagerFiles managerFiles = new ManagerFiles();
+                Manager manager = new Manager();
+                manager.OpenMenu();
+                manager.CloseMenu();
             }
 
             catch (Exception exception)
