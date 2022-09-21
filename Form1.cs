@@ -51,7 +51,27 @@ namespace WindowsFormsApp2
 
         private void DrawHead(string namePen)
         {
-            DrawPoint(namePen, new Point(100, 100), new Point(200, 200));
+            DrawPoint(namePen, new Point(120, 40), new Point(80, 80)); // 1
+            DrawPoint(namePen, new Point(80, 80), new Point(110, 130)); // 2
+            DrawPoint(namePen, new Point(120, 40), new Point(170, 38)); // 3
+            DrawPoint(namePen, new Point(110, 130), new Point(130, 132)); // 4
+            DrawPoint(namePen, new Point(110, 130), new Point(128, 120)); // 5
+            DrawPoint(namePen, new Point(130, 132), new Point(108, 78)); // 6
+            DrawPoint(namePen, new Point(108, 78), new Point(80, 80)); // 7
+            DrawPoint(namePen, new Point(108, 78), new Point(135, 82)); // 8
+            DrawPoint(namePen, new Point(135, 82), new Point(120, 40)); // 9
+            DrawPoint(namePen, new Point(135, 82), new Point(147, 136)); // 10
+            DrawPoint(namePen, new Point(147, 136), new Point(130, 132)); // 11
+            DrawPoint(namePen, new Point(147, 136), new Point(180, 145)); // 12
+            DrawPoint(namePen, new Point(180, 145), new Point(210, 140)); // 13
+            DrawPoint(namePen, new Point(210, 140), new Point(225, 130)); // 14
+            DrawPoint(namePen, new Point(225, 130), new Point(135, 82)); // 15
+            DrawPoint(namePen, new Point(225, 130), new Point(270, 70)); // 16
+            DrawPoint(namePen, new Point(245, 100), new Point(120, 40)); // 17
+            DrawPoint(namePen, new Point(270, 70), new Point(257, 55)); // 18
+            DrawPoint(namePen, new Point(257, 55), new Point(215, 85)); // 19
+            DrawPoint(namePen, new Point(170, 38), new Point(225, 41)); // 20
+            DrawPoint(namePen, new Point(225, 41), new Point(230, 70)); // 21
         }
 
         private void DrawEye(string namePen)
