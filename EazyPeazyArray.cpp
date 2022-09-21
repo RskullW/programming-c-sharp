@@ -1,22 +1,25 @@
-﻿#include "EazyPeazyArray.h"
-#include "iostream"
-#include <stdlib.h>
-#include <time.h>
+#include "pch.h"
+#include "main.h"
+DLL_EXPORT void InputArray(int* array, int size) {
+    srand(time(NULL));
 
-void InputArray(int* array, unsigned int size) {
     for (int i = 0; i < size; ++i) {
-        srand(time(NULL));
-        *(array+size) = rand()%1000;
+        *(array + i) = rand() % 1000;
     }
 }
-void OutputArray(int* array, unsigned int size) {
-    std::cout << "\nOutput array(" << size << "):\n";
+
+DLL_EXPORT void OutputArray(int* array, int size)
+{
+    std::cout << "\nOutput array(" << size << ")\n";
     for (int i = 0; i < size; ++i) {
         std::cout << *(array + i) << " ";
     }
-}
-void SetArray(int* array, unsigned int size) {
+};
+
+DLL_EXPORT void SetArray(int* array, int size) {
+    int temp;
     for (int i = 0; i < size; ++i) {
-        *(array + i) = (*(array+i)%3==0)?1:(*array+i);
+        temp = *(array + i);
+        *(array + i) = (temp % 3 == 0) ? 1 : temp;
     }
-}
+};
