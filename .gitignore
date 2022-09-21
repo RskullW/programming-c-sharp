@@ -1,4 +1,4 @@
-
+﻿
 bin/Debug/ConsoleApplication1.pdb
 obj/Debug/.NETFramework,Version=v4.7.1.AssemblyAttributes.cs
 obj/Debug/ConsoleApplication1.csproj.AssemblyReference.cache
@@ -42,3 +42,25 @@ cmake-build-debug/Testing/Temporary/LastTest.log
 cmake-build-debug/CMakeFiles/TargetDirectories.txt
 cmake-build-debug/CMakeFiles/rules.ninja
 cmake-build-debug/CMakeFiles/CMakeOutput.log
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+.idea/.idea.ArrayDLL.dir/.idea/encodings.xml
+.idea/.idea.ArrayDLL.dir/.idea/indexLayout.xml
+.idea/.idea.ArrayDLL.dir/.idea/vcs.xml
+.idea/workspace.xml
+cmake-build-debug/.cmake/api/v1/reply/cache-v2-9bbcbf22cdcbf07895e7.json
+cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-616b4ab3ef36ffc418bb.json
+cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-c83012e3d0b739e0c851.json
+cmake-build-debug/.cmake/api/v1/reply/target-ArrayDLL-Debug-e8f391bbe26f07aa84bd.json
+cmake-build-debug/.cmake/api/v1/reply/index-2022-09-21T10-52-49-0220.json
+cmake-build-debug/.ninja_deps
+cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-968ab60ff20a7dcb128c.json
+cmake-build-debug/.ninja_log
+cmake-build-debug/CMakeFiles/ArrayDLL.dir/EazyPeazyArray.cpp.obj
+Folder.DotSettings.user
