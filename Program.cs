@@ -1,35 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using ConsoleApplication1.Properties;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace ConsoleApplication1
+namespace WindowsFormsApp2
 {
-    class Program
+    static class Program
     {
-        private static List<Capybara> _capybaras;
-        private static ManagerCapybaras _managerCapybaras;
-
-        public static void Main(string[] args)
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
         {
-            try
-            {
-                _capybaras = new List<Capybara>(1);
-                _managerCapybaras = new ManagerCapybaras(_capybaras);
-                _managerCapybaras.OpenMenu();
-            }
-
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-            }
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
         }
     }
 }
-
-/*
-TODO: need to create a menu.
-‒ задание параметров конструируемого объекта;
-‒ вывод свойств объекта;
-‒ выполнение статического метода;
-‒ выполнение методов объекта.
-*/
