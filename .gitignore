@@ -1,4 +1,6 @@
-
+/.idea
+/obj
+/Properties
 bin/Debug/ConsoleApplication1.pdb
 obj/Debug/.NETFramework,Version=v4.7.1.AssemblyAttributes.cs
 obj/Debug/ConsoleApplication1.csproj.AssemblyReference.cache
@@ -7,3 +9,5 @@ obj/Debug/ConsoleApplication1.csproj.CoreCompileInputs.cache
 obj/Debug/ConsoleApplication1.exe
 obj/Debug/ConsoleApplication1.pdb
 bin/Debug/ConsoleApplication1.exe
+ConsoleApplication1.csproj
+*.csproj
