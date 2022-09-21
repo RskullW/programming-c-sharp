@@ -46,6 +46,7 @@ namespace WindowsFormsApp2
         private void Draw()
         {
             DrawHead("black4");
+            DrawEye("black4");
         }
         
 
@@ -71,12 +72,23 @@ namespace WindowsFormsApp2
             DrawPoint(namePen, new Point(270, 70), new Point(257, 55)); // 18
             DrawPoint(namePen, new Point(257, 55), new Point(215, 85)); // 19
             DrawPoint(namePen, new Point(170, 38), new Point(225, 41)); // 20
-            DrawPoint(namePen, new Point(225, 41), new Point(230, 70)); // 21
+            DrawPoint(namePen, new Point(225, 41), new Point(235, 70)); // 21
+            DrawPoint(namePen, new Point(225, 41), new Point(245, 30)); // 22
+            DrawPoint(namePen, new Point(245, 30), new Point(257, 55)); // 23
+            DrawPoint(namePen, new Point(250, 42), new Point(280, 37)); // 24
+            DrawPoint(namePen, new Point(280, 37), new Point(263, 63)); // 25
+            DrawPoint(namePen, new Point(210, 140), new Point(230, 180)); // 32
+            DrawPoint(namePen, new Point(230, 180), new Point(225, 130)); // 33
         }
 
         private void DrawEye(string namePen)
         {
-            
+            DrawPoint(namePen, new Point(190, 75), new Point(210, 65)); // 26
+            DrawPoint(namePen, new Point(210, 65), new Point(220, 67)); // 27
+            DrawPoint(namePen, new Point(220, 67), new Point(222, 78)); // 28
+            DrawPoint(namePen, new Point(222, 78), new Point(206, 73)); // 29
+            DrawPoint(namePen, new Point(190, 75), new Point(220, 67)); // 30
+            DrawPoint(namePen, new Point(222, 78), new Point(200, 80)); // 31
         }
 
         private void DrawTorso(string namePen)
