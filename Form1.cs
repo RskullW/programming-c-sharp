@@ -45,12 +45,14 @@ namespace WindowsFormsApp2
         }
         private void Draw()
         {
-            DrawHead("black4");
-            DrawEye("black4");
+            DrawLineHead("black4");
+            DrawLineEye("black4");
+            DrawLineTorso("black4");
+            DrawLineRightLeg("black4");
         }
         
 
-        private void DrawHead(string namePen)
+        private void DrawLineHead(string namePen)
         {
             DrawPoint(namePen, new Point(120, 40), new Point(80, 80)); // 1
             DrawPoint(namePen, new Point(80, 80), new Point(110, 130)); // 2
@@ -81,7 +83,7 @@ namespace WindowsFormsApp2
             DrawPoint(namePen, new Point(230, 180), new Point(225, 130)); // 33
         }
 
-        private void DrawEye(string namePen)
+        private void DrawLineEye(string namePen)
         {
             DrawPoint(namePen, new Point(190, 75), new Point(210, 65)); // 26
             DrawPoint(namePen, new Point(210, 65), new Point(220, 67)); // 27
@@ -91,10 +93,44 @@ namespace WindowsFormsApp2
             DrawPoint(namePen, new Point(222, 78), new Point(200, 80)); // 31
         }
 
-        private void DrawTorso(string namePen)
+        private void DrawLineTorso(string namePen)
         {
-            
+            DrawPoint(namePen, new Point(230, 180), new Point(330, 235)); // 34
+            DrawPoint(namePen, new Point(270, 70), new Point(328, 75)); // 35
+            DrawPoint(namePen, new Point(330, 235), new Point(328, 75)); // 36
+            DrawPoint(namePen, new Point(330, 235), new Point(355, 225)); // 37
+            DrawPoint(namePen, new Point(355, 225), new Point(365, 215)); // 38
+            DrawPoint(namePen, new Point(365, 215), new Point(330, 200)); // 39
+            DrawPoint(namePen, new Point(365, 215), new Point(380, 230)); // 40
+            DrawPoint(namePen, new Point(355, 225), new Point(375, 240)); // 41
+            DrawPoint(namePen, new Point(375, 240), new Point(380, 230)); // 42
+            DrawPoint(namePen, new Point(380, 230), new Point(390, 242)); // 43
+            DrawPoint(namePen, new Point(375, 240), new Point(485, 242)); // 44
+            DrawPoint(namePen, new Point(485, 242), new Point(500, 110)); // 45
+            DrawPoint(namePen, new Point(500, 110), new Point(328, 75)); // 46
+            DrawPoint(namePen, new Point(500, 110), new Point(497, 85)); // 47
+            DrawPoint(namePen, new Point(497, 85), new Point(460, 100)); // 47.1
+            DrawPoint(namePen, new Point(497, 85), new Point(495, 70)); // 48
+            DrawPoint(namePen, new Point(495, 70), new Point(480, 55)); // 49
+            DrawPoint(namePen, new Point(480, 55), new Point(390, 50)); // 50
+            DrawPoint(namePen, new Point(390, 50), new Point(330, 78)); // 51
+            DrawPoint(namePen, new Point(495, 70), new Point(600, 120)); // 52
+            DrawPoint(namePen, new Point(600, 120), new Point(497, 85)); // 53
+            DrawPoint(namePen, new Point(600, 120), new Point(585, 220)); // 54
+            DrawPoint(namePen, new Point(585, 220), new Point(490, 220)); // 55
+            DrawPoint(namePen, new Point(510, 220), new Point(485, 242)); // 56
+            DrawPoint(namePen, new Point(505, 225), new Point(505, 242)); // 57
+            DrawPoint(namePen, new Point(560, 220), new Point(580, 242)); // 58
+            DrawPoint(namePen, new Point(585, 220), new Point(580, 242)); // 59
+            DrawPoint(namePen, new Point(485, 242), new Point(580, 242)); // 60
         }
+        
+        private void DrawLineRightLeg(string namePen)
+        {
+            DrawPoint(namePen, new Point(585, 220), new Point(580, 242)); // 59
+
+        }
+
         
         private void DrawPoint(string name, Point firstPoint, Point secondPoint)
         {
