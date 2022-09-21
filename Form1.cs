@@ -49,6 +49,7 @@ namespace WindowsFormsApp2
             DrawLineEye("black4");
             DrawLineTorso("black4");
             DrawLineRightLeg("black4");
+            DrawLineLeftLeg("black4");
         }
         
 
@@ -127,8 +128,41 @@ namespace WindowsFormsApp2
         
         private void DrawLineRightLeg(string namePen)
         {
-            DrawPoint(namePen, new Point(585, 220), new Point(580, 242)); // 59
+            DrawPoint(namePen, new Point(580, 242), new Point(575, 320)); // 61
+            DrawPoint(namePen, new Point(505, 242), new Point(515, 320)); // 62
+            DrawPoint(namePen, new Point(485, 242), new Point(495, 295)); // 63
+            DrawPoint(namePen, new Point(495, 295), new Point(515, 320)); // 64
+            DrawPoint(namePen, new Point(515, 320), new Point(575, 320)); // 65
+            DrawPoint(namePen, new Point(515, 320), new Point(516, 335)); // 66
+            DrawPoint(namePen, new Point(516, 335), new Point(548, 320)); // 67
+            DrawPoint(namePen, new Point(548, 320), new Point(548, 335)); // 68
+            DrawPoint(namePen, new Point(516, 335), new Point(548, 335)); // 68.1
+            DrawPoint(namePen, new Point(548, 335), new Point(550, 355)); // 69
+            DrawPoint(namePen, new Point(550, 354), new Point(565, 375)); // 70
+            DrawPoint(namePen, new Point(575, 320), new Point(574, 335)); // 71
+            DrawPoint(namePen, new Point(574, 335), new Point(565, 375)); // 72
+            DrawPoint(namePen, new Point(565, 375), new Point(540, 376)); // 73
+            DrawPoint(namePen, new Point(550, 355), new Point(530, 355)); // 74
+            DrawPoint(namePen, new Point(540, 376), new Point(530, 355)); // 75
+            DrawPoint(namePen, new Point(516, 335), new Point(500, 345)); // 76
+            DrawPoint(namePen, new Point(548, 335), new Point(505, 360)); // 77
+            DrawPoint(namePen, new Point(500, 345), new Point(505, 360)); // 78
+            DrawPoint(namePen, new Point(505, 360), new Point(490, 360)); // 79
+            DrawPoint(namePen, new Point(500, 345), new Point(485, 346)); // 80
+            DrawPoint(namePen, new Point(490, 360), new Point(485, 346)); // 81
+        }
 
+        private void DrawLineLeftLeg(string namePen)
+        {
+            DrawPoint(namePen, new Point(330, 235), new Point(326, 320)); // 82
+            DrawPoint(namePen, new Point(326, 320), new Point(318, 335)); // 83
+            DrawPoint(namePen, new Point(318, 335), new Point(297, 337)); // 84
+            DrawPoint(namePen, new Point(326, 320), new Point(295, 322)); // 85
+            DrawPoint(namePen, new Point(297, 337), new Point(295, 322)); // 86
+            DrawPoint(namePen, new Point(375, 240), new Point(376, 310)); // 87
+            DrawPoint(namePen, new Point(318, 335), new Point(355, 329)); // 88
+            DrawPoint(namePen, new Point(376, 310), new Point(355, 329)); // 89
+            DrawPoint(namePen, new Point(355, 329), new Point(375, 240)); // 90
         }
 
         
