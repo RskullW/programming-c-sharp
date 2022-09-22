@@ -101,10 +101,7 @@ namespace ConsoleApplication1
                 throw new Exception("Error! The file not was opened!");
             }
 
-            _isOpenedFile = false;
-            
-            _fileManager.Dispose();
-            _fileManager = new FileManager(_path, false);
+            LocalClosedAndOpenFile();
 
             StringBuilder text = new StringBuilder(255);
 
@@ -116,6 +113,8 @@ namespace ConsoleApplication1
             var words = string.Join(" ", text.ToString().Split().OrderBy(x => x));
 
             _fileManager.WriteFile(words);
+            
+            LocalClosedAndOpenFile(true);
         }
         
         private void LeaveTenWords()
@@ -125,10 +124,8 @@ namespace ConsoleApplication1
                 throw new Exception("Error! The file not was opened!");
             }
             
-            _fileManager.Dispose();
-            _isOpenedFile = false;
-            _fileManager = new FileManager(_path, false);
-            
+            LocalClosedAndOpenFile();
+
             ushort index = 1;
             
             string text = "";
@@ -145,7 +142,8 @@ namespace ConsoleApplication1
             }
             
             _fileManager.WriteFile(text);
-            
+
+            LocalClosedAndOpenFile(true);
         }
 
         private void CloseFile()
@@ -182,6 +180,12 @@ namespace ConsoleApplication1
         public static void Display(string message)
         {
             Console.WriteLine(message);
+        }
+
+        private void LocalClosedAndOpenFile(bool read = false)
+        {
+            _fileManager.Dispose();
+            _fileManager = new FileManager(_path, read);
         }
     }
 }
